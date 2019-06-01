@@ -1,6 +1,19 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "src/index.js",
-  "license": "MIT"
+  "main": "src/server.js",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/rest": "^16.27.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.4",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.0",
+    "rethinkdbdash": "^2.3.31"
+  }
 }
