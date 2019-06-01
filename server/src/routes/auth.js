@@ -11,7 +11,7 @@ router.get('/login', (req, res) =>
   res.redirect(
     `https://github.com/login/oauth/authorize?client_id=${
       process.env.GITHUB_CLIENT_ID
-    }&redirect_uri=${process.env.API_BASE}&scope=user:email`
+    }&redirect_uri=${process.env.API_BASE +  '/api/auth/callback'}&scope=user:email`
   )
 );
 
@@ -37,7 +37,7 @@ router.get('/callback', async (req, res) => {
   const authClient = new Octokit({ auth: `token ${token}` });
   const { data } = await authClient.users.getAuthenticated({});
   const emails = await authClient.users.listEmails({});
-  const primaryEmail = emails.data.filter((e) => e.primary)[0].email;
+  const primaryEmail = emails.data.find((e) => e.primary).email;
   let user = await r
     .table('users')
     .get(data.id)
