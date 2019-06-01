@@ -7,13 +7,17 @@
   "dependencies": {
     "@octokit/rest": "^16.27.3",
     "cors": "^2.8.5",
+    "domain-name-regex": "^2.0.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.1.4",
     "express-jwt": "^5.3.1",
+    "helmet": "^3.18.0",
     "jsonwebtoken": "^8.5.1",
+    "mime-types": "^2.1.24",
     "morgan": "^1.9.1",
     "node-fetch": "^2.6.0",
+    "randomstring": "^1.1.5",
     "rethinkdbdash": "^2.3.31"
   }
 }
