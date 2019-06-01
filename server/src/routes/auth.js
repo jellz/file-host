@@ -63,7 +63,8 @@ router.get('/callback', async (req, res) => {
         username: data.username,
         createdAt: Date.now(),
         email: primaryEmail,
-        lastLoggedIn: Date.now()
+        lastLoggedIn: Date.now(),
+        customDomain: null
       })
       .run();
   }
