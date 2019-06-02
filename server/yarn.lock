@@ -242,11 +242,6 @@ dns-prefetch-control@0.1.0:
   resolved "https://registry.yarnpkg.com/dns-prefetch-control/-/dns-prefetch-control-0.1.0.tgz#60ddb457774e178f1f9415f0cabb0e85b0b300b2"
   integrity sha1-YN20V3dOF48flBXwyrsOhbCzALI=
 
-domain-name-regex@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/domain-name-regex/-/domain-name-regex-2.0.0.tgz#c3004aedd24d4f2a0b230d89ed010e2e7aec1535"
-  integrity sha512-GuXngTKjlld+e2o+Ku1cKRKY9NfLzN5djyxtA7Jw3+NUZB1KTQn1N8DtNOkO2F5D5jhyYypjd9WBE1LKzhVHmg==
-
 dont-sniff-mimetype@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dont-sniff-mimetype/-/dont-sniff-mimetype-1.0.0.tgz#5932890dc9f4e2f19e5eb02a20026e5e5efc8f58"
