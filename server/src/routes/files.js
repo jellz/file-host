@@ -2,9 +2,9 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const randomString = require('randomstring');
 const mime = require('mime-types');
-const { mkdirSync } = require('fs');
+const fs = require('fs');
 const { r } = require('../server');
-const { resolve } = require('path');
+const path = require('path');
 
 const router = (module.exports = express.Router({ mergeParams: true }));
 
@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   console.log(req.hostname);
   const domain = fileOwner.customDomain || process.env.DEFAULT_DOMAIN;
   if (req.hostname !== domain) return res.sendStatus(404);
-  res.sendFile(resolve('files/' + fileOwner.id + '/' + req.params.file));
+  res.sendFile(path.resolve('files/' + fileOwner.id + '/' + req.params.file));
 });
 
 router.use(fileUpload({ preserveExtension: true, safeFileNames: true }));
@@ -45,7 +45,7 @@ router.post('/', async (req, res) => {
   if (!fileExt) return res.status(400).json({ error: 'Invalid MIME type' });
   const shortNameWithExt = shortName + '.' + fileExt;
   try {
-    mkdirSync('files/' + req.user.id);
+    fs.mkdirSync('files/' + req.user.id);
   } catch (err) {
     if (
       !err
@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
     )
       console.error(err);
   }
-  file.mv(resolve('files/' + req.user.id + '/' + shortNameWithExt));
+  file.mv(path.resolve('files/' + req.user.id + '/' + shortNameWithExt));
   await r
     .table('files')
     .insert({

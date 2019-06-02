@@ -29,7 +29,7 @@ router.patch('/me', ensureOfficialDomain, async (req, res) => {
     return res
       .status(400)
       .json({ error: "'customDomain' must be a valid domain name" });
-  const usersWithDomain = await r.table('users').filter({ customDomain });
+  const usersWithDomain = await r.table('users').filter({ customDomain }).run();
   if (usersWithDomain.length > 0)
     return res
       .status(403)
@@ -39,7 +39,7 @@ router.patch('/me', ensureOfficialDomain, async (req, res) => {
     .get(req.user.id)
     .update({
       customDomain
-    });
+    }).run();
   res.sendStatus(204);
 });
 
