@@ -45,7 +45,7 @@ router.patch('/me', ensureOfficialDomain, async (req, res) => {
 
 router.use(zip());
 
-router.get('/request_file_archive', ensureOfficialDomain, async (req, res) => {
+router.post('/request_file_archive', ensureOfficialDomain, async (req, res) => {
   if (!req.user)
     return res
       .status(401)
@@ -67,7 +67,11 @@ router.get('/request_file_archive', ensureOfficialDomain, async (req, res) => {
     ],
     filename: fileName
   });
-  await r.table('users').get(req.user.id).update({
-    lastArchiveRequest: Date.now()
-  }).run();
+  await r
+    .table('users')
+    .get(req.user.id)
+    .update({
+      lastArchiveRequest: Date.now()
+    })
+    .run();
 });
