@@ -4,14 +4,17 @@ const { r, jwtKey } = require('../server');
 const fetch = require('node-fetch');
 const Octokit = require('@octokit/rest');
 const queryString = require('querystring');
+const { ensureOfficialDomain } = require('../util');
 
 const router = (module.exports = express.Router());
+router.use(ensureOfficialDomain);
 
 router.get('/login', (req, res) =>
   res.redirect(
     `https://github.com/login/oauth/authorize?client_id=${
       process.env.GITHUB_CLIENT_ID
-    }&redirect_uri=${process.env.API_BASE +  '/api/auth/callback'}&scope=user:email`
+    }&redirect_uri=${process.env.API_BASE +
+      '/api/auth/callback'}&scope=user:email`
   )
 );
 
@@ -29,7 +32,7 @@ router.get('/callback', async (req, res) => {
   const token = tokenJson.access_token;
   if (!token)
     console.error(
-      'Did not get token from github',
+      'Did not get token from GitHub',
       tokenJson,
       'query code',
       req.query.code
