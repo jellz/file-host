@@ -66,5 +66,5 @@ router.post('/', async (req, res) => {
       owner: req.user.id
     })
     .run();
-  res.json({ file: shortNameWithExt });
+  res.status(201).json({ file: shortNameWithExt });
 });
