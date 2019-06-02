@@ -67,7 +67,8 @@ router.get('/callback', async (req, res) => {
         createdAt: Date.now(),
         email: primaryEmail,
         lastLoggedIn: Date.now(),
-        customDomain: null
+        customDomain: null,
+        lastArchiveRequest: null
       })
       .run();
   }
