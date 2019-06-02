@@ -61,6 +61,7 @@ app.use(
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/files', require('./routes/files'));
+app.use('/api/users', require('./routes/users'));
 app.use('/:file', require('./routes/files'));
 
 app.listen(port, () => console.log('file-host server listening on port', port));
