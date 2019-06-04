@@ -41,6 +41,7 @@ router.get('/callback', async (req, res) => {
   const { data } = await authClient.users.getAuthenticated({});
   const emails = await authClient.users.listEmails({});
   const primaryEmail = emails.data.find((e) => e.primary).email;
+  console.log(data);
   let user = await r
     .table('users')
     .get(data.id)
@@ -52,7 +53,7 @@ router.get('/callback', async (req, res) => {
       .get(data.id)
       .update({
         avatarUrl: data.avatar_url,
-        username: data.username,
+        username: data.login,
         email: primaryEmail,
         lastLoggedIn: Date.now()
       })
@@ -63,7 +64,7 @@ router.get('/callback', async (req, res) => {
       .insert({
         id: data.id,
         avatarUrl: data.avatar_url,
-        username: data.username,
+        username: data.login,
         createdAt: Date.now(),
         email: primaryEmail,
         lastLoggedIn: Date.now(),
