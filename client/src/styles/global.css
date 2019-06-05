@@ -70,7 +70,7 @@ label {
 }
 input[disabled] {
   cursor: not-allowed;
-  color: #eee !important;
+  color: #444 !important;
 }
 ul {
   padding: 0;
@@ -86,7 +86,7 @@ a {
 }
 
 /* 
-  Form styles taken from Wing.css - huge thank you!
+  Input styles based on Wing.css - huge thank you!
   Copyright © 2016-2018 Kabir Shah
   MIT License (https://opensource.org/licenses/MIT) 
 */
@@ -106,12 +106,13 @@ textarea {
   margin-top: 10px;
   padding: 16px;
   font-size: 16px;
-  /* background: #f5f5f5; */
-  background: #202023;
+  background: #f5f5f5;
+  /* background: #202023; */
   border: 1px solid transparent;
   border-radius: 2px;
   transition: all 0.2s ease;
-  color: #fff;
+  /* color: #fff; */
+  color: #111;
 }
 input[type='text']:hover,
 input[type='password']:hover,

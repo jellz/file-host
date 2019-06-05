@@ -20,7 +20,6 @@ export default class DashboardProfileCard extends Component {
                 <div>
                   <label>Email</label>
                   <input
-                    class='input-with-icon'
                     type='text'
                     disabled
                     value={this.props.user.email}
