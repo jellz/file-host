@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 // Code-splitting is automated for routes
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Footer from './components/Footer';
 
 export default class App extends Component {
   // Gets fired when the route changes
@@ -31,6 +32,7 @@ export default class App extends Component {
             <Dashboard path='/dashboard' />
           </Router>
         </div>
+        <Footer />
       </div>
     );
   }

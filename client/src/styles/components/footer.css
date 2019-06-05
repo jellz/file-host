@@ -1,0 +1,30 @@
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #202023;
+  color: #fff;
+  /* text-align: center; */
+  /* height: 15vh; */
+  padding: 30px 0px;
+}
+.footer-link {
+  color: #eee;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: block;
+}
+.footer-description {
+  font-size: 8px;
+  padding-right: 3%;
+}
+.footer-link:hover {
+  color: white;
+}
+.footer-copyright-notice {
+  font-size: 10px;
+  float: right;
+  bottom: 0;
+  position: absolute;
+}
