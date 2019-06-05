@@ -29,7 +29,6 @@
   "dependencies": {
     "preact": "^8.2.6",
     "preact-compat": "^3.17.0",
-    "preact-router": "^2.5.7",
-    "wingcss": "^1.0.0-beta"
+    "preact-router": "^2.5.7"
   }
 }
