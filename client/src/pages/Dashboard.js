@@ -28,7 +28,6 @@ export default class Dashboard extends Component {
   async setCustomDomain(customDomain) {
     if (!this.state.user) return false;
     customDomain = customDomain.trim();
-    console.log(window.localStorage.getItem('token'));
     console.log(customDomain);
     const res = await fetch(API_BASE + '/api/users/me', {
       method: 'PATCH',
@@ -39,7 +38,8 @@ export default class Dashboard extends Component {
         'Authorization': `JWT ${  window.localStorage.getItem('token')}`
       }
     });
-    console.log(res);
+    if (!res.ok) return alert(`Error: ${(await res.json()).error}`)
+    else return alert('Updated custom domain');
   }
 
   render() {
