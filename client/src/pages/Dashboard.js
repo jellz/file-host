@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import { route } from 'preact-router';
+import { route, Link } from 'preact-router';
 import { API_BASE } from '../config';
 import DashboardProfileCard from '../components/dashboard/DashboardProfileCard';
 import DashboardAccountSettings from '../components/dashboard/DashboardAccountSettings';
@@ -50,7 +50,7 @@ export default class Dashboard extends Component {
             <p>
               You're logged in as <b>{this.state.user.username}</b>
               <br />
-              <a class='dark bold'>Logout</a>
+              <Link href='/logout' class='dark bold'>Logout</Link>
             </p>
             <div>
               <grid columns='2'>

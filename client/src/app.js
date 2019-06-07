@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 // Code-splitting is automated for routes
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 
 export default class App extends Component {
   // Gets fired when the route changes
@@ -17,7 +18,11 @@ export default class App extends Component {
     switch (e.url) {
       case '/dashboard':
         const isAuthed = !!window.localStorage.getItem('token');
-        if (!isAuthed) route('/', true);
+        if (!isAuthed) route('/login', true);
+        break;
+      case '/logout':
+        window.localStorage.removeItem('token');
+        route('/');
         break;
     }
   };
@@ -30,6 +35,7 @@ export default class App extends Component {
           <Router onChange={this.handleRoute}>
             <Home path='/' />
             <Dashboard path='/dashboard' />
+            <Login path='/login' />
           </Router>
         </div>
         <Footer />
