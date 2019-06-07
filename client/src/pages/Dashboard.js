@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
   async componentDidMount() {
     const res = await fetch(API_BASE + '/api/users/me', {
       headers: {
-        'Authorization': `JWT ${window.localStorage.getItem('token').trim()}`
+        Authorization: `JWT ${window.localStorage.getItem('token').trim()}`
       }
     });
     const json = await res.json();
@@ -35,10 +35,10 @@ export default class Dashboard extends Component {
       body: JSON.stringify({ customDomain: customDomain }),
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `JWT ${  window.localStorage.getItem('token')}`
+        Authorization: `JWT ${window.localStorage.getItem('token')}`
       }
     });
-    if (!res.ok) return alert(`Error: ${(await res.json()).error}`)
+    if (!res.ok) return alert(`Error: ${(await res.json()).error}`);
     else return alert('Updated custom domain');
   }
 
