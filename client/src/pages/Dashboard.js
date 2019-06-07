@@ -5,6 +5,11 @@ import DashboardProfileCard from '../components/dashboard/DashboardProfileCard';
 import DashboardAccountSettings from '../components/dashboard/DashboardAccountSettings';
 
 export default class Dashboard extends Component {
+  constructor() {
+    super();
+    this.setCustomDomain = this.setCustomDomain.bind(this);
+  }
+
   state = {
     user: null
   };
@@ -12,12 +17,29 @@ export default class Dashboard extends Component {
   async componentDidMount() {
     const res = await fetch(API_BASE + '/api/users/me', {
       headers: {
-        Authorization: `JWT ${window.localStorage.getItem('token').trim()}`
+        'Authorization': `JWT ${window.localStorage.getItem('token').trim()}`
       }
     });
     const json = await res.json();
     this.setState({ user: json.user });
     console.log(this.state.user);
+  }
+
+  async setCustomDomain(customDomain) {
+    if (!this.state.user) return false;
+    customDomain = customDomain.trim();
+    console.log(window.localStorage.getItem('token'));
+    console.log(customDomain);
+    const res = await fetch(API_BASE + '/api/users/me', {
+      method: 'PATCH',
+      mode: 'cors',
+      body: JSON.stringify({ customDomain: customDomain }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `JWT ${  window.localStorage.getItem('token')}`
+      }
+    });
+    console.log(res);
   }
 
   render() {
@@ -36,7 +58,10 @@ export default class Dashboard extends Component {
                   <DashboardProfileCard user={this.state.user} />
                 </c>
                 <c>
-                  <DashboardAccountSettings user={this.state.user} />
+                  <DashboardAccountSettings
+                    user={this.state.user}
+                    setCustomDomain={this.setCustomDomain}
+                  />
                 </c>
               </grid>
             </div>
