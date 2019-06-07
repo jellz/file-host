@@ -66,5 +66,6 @@ router.post('/', async (req, res) => {
       owner: req.user.id
     })
     .run();
-  res.status(201).json({ file: shortNameWithExt });
+    const domain = req.user.customDomain || process.env.DEFAULT_DOMAIN;
+  res.status(201).json({ file: shortNameWithExt, url: `https://${domain}/${shortNameWithExt}` });
 });
