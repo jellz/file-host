@@ -3,11 +3,11 @@ import { Router } from 'preact-router';
 import { route } from 'preact-router';
 
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 // Code-splitting is automated for routes
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import Footer from './components/Footer';
 
 export default class App extends Component {
   // Gets fired when the route changes

@@ -19,11 +19,7 @@ export default class DashboardProfileCard extends Component {
                 </div>
                 <div>
                   <label>Email</label>
-                  <input
-                    type='text'
-                    disabled
-                    value={this.props.user.email}
-                  />
+                  <input type='text' disabled value={this.props.user.email} />
                 </div>
               </div>
             </div>
