@@ -65,6 +65,9 @@ export default class Dashboard extends Component {
                 </c>
               </grid>
             </div>
+            <br />
+            <h6>If you have any questions or problems please contact me by email <b>danielgulic@gmail.com</b> OR Discord <b>daniel#0004</b></h6>
+            <h6>To request an archive of your files email me at <b>danielgulic@gmail.com</b></h6>
           </div>
         )}
       </div>
