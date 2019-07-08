@@ -68,6 +68,7 @@ export default class Dashboard extends Component {
             <br />
             <h6>If you have any questions or problems please contact me by email <b>danielgulic@gmail.com</b> OR Discord <b>daniel#0004</b></h6>
             <h6>To request an archive of your files email me at <b>danielgulic@gmail.com</b></h6>
+            <h6>If you're using ShareX, <a href='https://i.jlz.fun/DDP79Z9.txt'>use our destination config</a>.</h6>
           </div>
         )}
       </div>
