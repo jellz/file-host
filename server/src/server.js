@@ -29,7 +29,7 @@ app.enable('trust proxy');
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(express.json());
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Headers',
