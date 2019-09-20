@@ -59,6 +59,8 @@ router.get('/callback', async (req, res) => {
 			})
 			.run();
 	} else {
+		console.log('allow register', process.env.ALLOW_REGISTER);
+		if (process.env.ALLOW_REGISTER === 'false') return res.status(401).send('Registration is currently disabled');
 		await r
 			.table('users')
 			.insert({

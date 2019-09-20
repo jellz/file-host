@@ -68,10 +68,8 @@ router.post('/', async (req, res) => {
 		})
 		.run();
 	const domain = req.user.customDomain || process.env.DEFAULT_DOMAIN;
-	res
-		.status(201)
-		.json({
-			file: shortNameWithExt,
-			url: `https://${domain}/${shortNameWithExt}`
-		});
+	res.status(201).json({
+		file: shortNameWithExt,
+		url: `https://${domain}/${shortNameWithExt}`
+	});
 });

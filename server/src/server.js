@@ -5,6 +5,8 @@ const helmet = require('helmet');
 const ejwt = require('express-jwt');
 const fs = require('fs');
 
+process.env.ALLOW_REGISTER = process.env.ALLOW_REGISTER || true;
+
 try {
 	fs.mkdirSync('files');
 } catch (err) {
