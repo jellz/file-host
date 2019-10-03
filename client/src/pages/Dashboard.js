@@ -12,7 +12,7 @@ export default class Dashboard extends Component {
 
 	state = {
 		user: null,
-		token: window.localStorage.getItem('token').trim()
+		token: window ? window.localStorage.getItem('token').trim() : null //allow preact pre-rendering
 	};
 
 	async componentDidMount() {
