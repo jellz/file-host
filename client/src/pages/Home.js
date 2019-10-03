@@ -4,7 +4,7 @@ import { API_BASE } from '../config';
 
 export default class Home extends Component {
 	state = {
-		loggedIn: !!window.localStorage.getItem('token')
+		loggedIn: window ? !!window.localStorage.getItem('token') : false
 	};
 
 	render() {
