@@ -11,13 +11,14 @@ export default class Dashboard extends Component {
 	}
 
 	state = {
-		user: null
+		user: null,
+		token: window.localStorage.getItem('token').trim()
 	};
 
 	async componentDidMount() {
 		const res = await fetch(API_BASE + '/api/users/me', {
 			headers: {
-				Authorization: `JWT ${window.localStorage.getItem('token').trim()}`
+				Authorization: `JWT ${this.state.token}`
 			}
 		});
 		const json = await res.json();
@@ -35,7 +36,7 @@ export default class Dashboard extends Component {
 			body: JSON.stringify({ customDomain: customDomain }),
 			headers: {
 				'Content-Type': 'application/json',
-				Authorization: `JWT ${window.localStorage.getItem('token')}`
+				Authorization: `JWT ${this.state.token}`
 			}
 		});
 		if (!res.ok) return alert(`Error: ${(await res.json()).error}`);
@@ -68,6 +69,9 @@ export default class Dashboard extends Component {
 							</grid>
 						</div>
 						<br />
+						<h6>
+							Your token is <pre><strong>{this.state.token}</strong></pre>
+						</h6>
 						<h6>
 							If you have any questions or problems please contact me by email{' '}
 							<b>danielgulic@gmail.com</b> OR Discord <b>daniel#0004</b>
