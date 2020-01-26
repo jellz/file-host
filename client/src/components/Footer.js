@@ -29,7 +29,7 @@ export default class Footer extends Component {
 						<c />
 						<c>
 							<div class='footer-copyright-notice'>
-								Copyright &copy; 2019 Daniel Gulic
+								Copyright &copy; 2020 Daniel Gulic
 							</div>
 						</c>
 					</grid>
