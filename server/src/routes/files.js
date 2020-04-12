@@ -38,7 +38,8 @@ router.post('/', async (req, res) => {
 	if (req.params.file)
 		return res.status(301).json({ error: 'Use /api/files for POST requests' }); // We don't want people sending POST requests to /:file instead of /api/files
 	if (!req.files) return res.status(400).json({ error: 'No files provided ' });
-	const file = req.files[Object.keys(req.files)[0]];
+  const file = req.files[Object.keys(req.files)[0]];
+  console.log('FILE SIZE', file.size);
 	if (file.size > 8000 && req.user.id !== 11891199)
     return res.status(400).json({ error: 'Max. upload size is 8 MB' });
   else if (file.size > 20000 /* 20MB */ && req.user.id == 11891199) return res.status(400).json({ error: 'Max. upload size is 20 MB' });
