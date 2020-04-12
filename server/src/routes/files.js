@@ -40,9 +40,9 @@ router.post('/', async (req, res) => {
 	if (!req.files) return res.status(400).json({ error: 'No files provided ' });
   const file = req.files[Object.keys(req.files)[0]];
   console.log('FILE SIZE', file.size);
-	if (file.size > 8000 && req.user.id !== 11891199)
+	if (file.size > 8e6 && req.user.id !== 11891199)
     return res.status(400).json({ error: 'Max. upload size is 8 MB' });
-  else if (file.size > 20000 /* 20MB */ && req.user.id == 11891199) return res.status(400).json({ error: 'Max. upload size is 20 MB' });
+  else if (file.size > 20e6 /* 20MB */ && req.user.id == 11891199) return res.status(400).json({ error: 'Max. upload size is 20 MB' });
 	const shortName = randomString.generate(7);
 	const fileExt = mime.extension(file.mimetype);
 	if (!fileExt) return res.status(400).json({ error: 'Invalid MIME type' });
