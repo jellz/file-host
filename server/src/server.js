@@ -20,7 +20,8 @@ try {
 }
 
 const r = (exports.r = require('rethinkdbdash')({
-	db: process.env.RETHINKDB_DATABASE
+  db: process.env.RETHINKDB_DATABASE,
+  host: process.env.RETHINKDB_HOST || undefined
 }));
 const jwtKey = (exports.jwtKey = fs.readFileSync('jwt.key').toString());
 const port = process.env.PORT || 3000;
