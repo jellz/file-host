@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  client:
+    image: file-host-client
+    container_name: file-host-client
+    tty: true
+    depends_on: server
+    stdin_open: true
+    networks:
+      - myweb
+
+  server:
+    image: file-host-server
+    container_name: file-host-server
+    tty: true
+    stdin_open: true
+    networks:
+      - myweb
+
+networks:
+  myweb:
+    external: true
