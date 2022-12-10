@@ -7,7 +7,7 @@
   "dependencies": {
     "@octokit/rest": "^16.27.3",
     "dotenv": "^8.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-easy-zip": "^1.1.4",
     "express-fileupload": "^1.1.4",
     "express-jwt": "^5.3.1",
